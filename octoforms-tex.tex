@@ -1,0 +1,1044 @@
+%% Created by Maple 2023.0, Mac OS X
+%% Source Worksheet: octoforms
+%% Generated: Fri Jun 28 16:51:14 EDT 2024
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{maple}
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{breqn}
+\usepackage{textcomp}
+\begin{document}
+\lstset{basicstyle=\ttfamily,breaklines=true,columns=flexible}
+\pagestyle{empty}
+\DefineParaStyle{Maple Bullet Item}
+\DefineParaStyle{Maple Heading 1}
+\DefineParaStyle{Maple Warning}
+\DefineParaStyle{Maple Heading 4}
+\DefineParaStyle{Maple Heading 2}
+\DefineParaStyle{Maple Heading 3}
+\DefineParaStyle{Maple Dash Item}
+\DefineParaStyle{Maple Error}
+\DefineParaStyle{Maple Title}
+\DefineParaStyle{Maple Ordered List 1}
+\DefineParaStyle{Maple Text Output}
+\DefineParaStyle{Maple Ordered List 2}
+\DefineParaStyle{Maple Ordered List 3}
+\DefineParaStyle{Maple Normal}
+\DefineParaStyle{Maple Ordered List 4}
+\DefineParaStyle{Maple Ordered List 5}
+\DefineCharStyle{Maple 2D Output}
+\DefineCharStyle{Maple 2D Input}
+\DefineCharStyle{Maple Maple Input}
+\DefineCharStyle{Maple 2D Math}
+\DefineCharStyle{Maple Hyperlink}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{with} (\mathit{DifferentialGeometry})\colon \mathit{with} (\mathit{Tensor})\colon \,\mathit{with} (\mathit{Tools}); $}
+
+% \mapleresult
+\begin{dmath}\label{(1)}
+\left[\mathit{\&MatrixAlgMult} ,\mathit{\&MatrixMinus} ,\mathit{\&MatrixMult} ,\mathit{\&MatrixPlus} ,\mathit{\&MatrixWedge} ,\mathit{CalculationHistory} ,
+\\
+\mathit{CanonicalBasis} ,\mathit{DGbiform} ,\mathit{DGequal} ,\mathit{DGform} ,\mathit{DGinfo} ,\mathit{DGmain} ,
+\\
+\mathit{DGmap} ,\mathit{DGmultivector} ,\mathit{DGscalar} ,\mathit{DGsimplify} ,\mathit{DGtensor} ,
+\\
+\mathit{DGvector} ,\mathit{DGvolume} ,\mathit{DGzero} ,\mathit{Divergence} ,\mathit{GenerateForms} ,
+\\
+\mathit{IdentityTransformation} \right]
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{DGsetup} ([\mathit{x1} ,\mathit{x2} ,\mathit{x3} ,\mathit{x4} ,\mathit{x5} ,\mathit{x6} ,\mathit{x7} ,\mathit{y0} ,\mathit{y1} ,\mathit{y2} ,\mathit{y3} ,\mathit{y4} ,\mathit{y5} ,\mathit{y6} ,\mathit{y7}],\mathit{R15} ,\mathit{verbose}); $}
+
+% \mapleresult
+\begin{dmath*}
+\mathit{The\,following\,coordinates\,have\,been\,protected:\,} 
+\end{dmath*}
+\vspace{-\bigskipamount}
+% \mapleresult
+\begin{dmath*}
+\left[\mathit{x1} ,\mathit{x2} ,\mathit{x3} ,\mathit{x4} ,\mathit{x5} ,\mathit{x6} ,\mathit{x7} ,\mathit{y0} ,\mathit{y1} ,\mathit{y2} ,\mathit{y3} ,\mathit{y4} ,\mathit{y5} ,\mathit{y6} ,\mathit{y7} \right]
+\end{dmath*}
+\vspace{-\bigskipamount}
+% \mapleresult
+\begin{dmath*}
+\mathit{The\,following\,vector\,fields\,have\,been\,defined\,and\,protected:\,} 
+\end{dmath*}
+\vspace{-\bigskipamount}
+% \mapleresult
+\begin{dmath*}
+\left[\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7} \right]
+\end{dmath*}
+\vspace{-\bigskipamount}
+% \mapleresult
+\begin{dmath*}
+\mathit{The\,following\,differential\,1-forms\,have\,been\,defined\,and\,protected:\,} 
+\end{dmath*}
+\vspace{-\bigskipamount}
+% \mapleresult
+\begin{dmath*}
+\left[\mathit{dx1} ,\mathit{dx2} ,\mathit{dx3} ,\mathit{dx4} ,\mathit{dx5} ,\mathit{dx6} ,\mathit{dx7} ,\mathit{dy0} ,\mathit{dy1} ,\mathit{dy2} ,\mathit{dy3} ,\mathit{dy4} ,\mathit{dy5} ,
+\\
+\mathit{dy6} ,\mathit{dy7} \right]
+\end{dmath*}
+\vspace{-\bigskipamount}
+% \mapleresult
+\begin{dmath}\label{(2)}
+\mathit{frame\,name:\,R15\,} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vol7} \coloneqq \mathit{evalDG} (\mathit{dx1} \:\&\!\!w \,\mathit{dx2} \:\&\!\!w \,\mathit{dx3} \:\&\!\!w \,\mathit{dx4} \:\&\!\!w \,\mathit{dx5} \:\&\!\!w \,\mathit{dx6} \:\&\!\!w \,\mathit{dx7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(3)}
+\mathit{vol7} \coloneqq \mathit{dx1} \mathit{dx2} \mathit{dx3} \mathit{dx4} \mathit{dx5} \mathit{dx6} \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vol8} \coloneqq \mathit{evalDG} (\mathit{dy0} \:\&\!\!w \,\mathit{dy1} \:\&\!\!w \,\mathit{dy2} \:\&\!\!w \,\mathit{dy3} \:\&\!\!w \,\mathit{dy4} \:\&\!\!w \,\mathit{dy5} \:\&\!\!w \,\mathit{dy6} \:\&\!\!w \,\mathit{dy7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(4)}
+\mathit{vol8} \coloneqq \mathit{dy0} \mathit{dy1} \mathit{dy2} \mathit{dy3} \mathit{dy4} \mathit{dy5} \mathit{dy6} \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} g \coloneqq \mathit{evalDG} (\mathit{dx1} \,\:\&\!\!t \,\mathit{dx1} +\mathit{dx2} \,\:\&\!\!t \,\mathit{dx2} +\mathit{dx3} \,\:\&\!\!t \,\mathit{dx3} +\mathit{dx4} \,\:\&\!\!t \,\mathit{dx4} +\mathit{dx5} \,\:\&\!\!t \,\mathit{dx5} +\mathit{dx6} \,\:\&\!\!t \,\mathit{dx6} +\mathit{dx7} \,\:\&\!\!t \,\mathit{dx7} +\mathit{dy0} \,\:\&\!\!t \,\mathit{dy0} +\mathit{dy1} \,\:\&\!\!t \,\mathit{dy1} +\mathit{dy2} \,\:\&\!\!t \,\mathit{dy2} +\mathit{dy3} \,\:\&\!\!t \,\mathit{dy3} +\mathit{dy4} \,\:\&\!\!t \,\mathit{dy4} +\mathit{dy5} \,\:\&\!\!t \,\mathit{dy5} +\mathit{dy6} \,\:\&\!\!t \,\mathit{dy6} +\mathit{dy7} \,\:\&\!\!t \,\mathit{dy7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(5)}
+g \coloneqq \mathit{dx1} \mathit{dx1} +\mathit{dx2} \mathit{dx2} +\mathit{dx3} \mathit{dx3} +\mathit{dx4} \mathit{dx4} +\mathit{dx5} \mathit{dx5} +\mathit{dx6} \mathit{dx6} +\mathit{dx7} \mathit{dx7} +\mathit{dy0} \mathit{dy0} +\mathit{dy1} \mathit{dy1} +\mathit{dy2} \mathit{dy2} +\mathit{dy3} \mathit{dy3} +\mathit{dy4} \mathit{dy4} +\mathit{dy5} \mathit{dy5} +\mathit{dy6} \mathit{dy6} +\mathit{dy7} \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{phiy} \coloneqq \mathit{evalDG} (\mathit{dy1} \:\&\!\!w \,\mathit{dy2} \:\&\!\!w \,\mathit{dy3} -\mathit{dy1} \:\&\!\!w \,\mathit{dy6} \:\&\!\!w \,\mathit{dy7} -\mathit{dy5} \:\&\!\!w \,\mathit{dy2} \:\&\!\!w \,\mathit{dy7} -\mathit{dy5} \:\&\!\!w \,\mathit{dy6} \:\&\!\!w \,\mathit{dy3} -\mathit{dy4} \:\&\!\!w \,\mathit{dy1} \:\&\!\!w \,\mathit{dy5} -\mathit{dy4} \:\&\!\!w \,\mathit{dy2} \:\&\!\!w \,\mathit{dy6} -\mathit{dy4} \:\&\!\!w \,\mathit{dy3} \:\&\!\!w \,\mathit{dy7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(6)}
+\mathit{phiy} \coloneqq \mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3} +\mathit{dy1} \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} -\mathit{dy1} \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} +\mathit{dy2} \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} +\mathit{dy2} \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy7} +\mathit{dy3} \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy7} -\mathit{dy3} \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{psiy} \coloneqq \mathit{evalDG} (\mathit{dy4} \:\&\!\!w \,\mathit{dy5} \:\&\!\!w \,\mathit{dy6} \:\&\!\!w \,\mathit{dy7} -\mathit{dy4} \:\&\!\!w \,\mathit{dy5} \:\&\!\!w \,\mathit{dy2} \:\&\!\!w \,\mathit{dy3} -\mathit{dy4} \:\&\!\!w \,\mathit{dy1} \:\&\!\!w \,\mathit{dy6} \:\&\!\!w \,\mathit{dy3} -\mathit{dy4} \:\&\!\!w \,\mathit{dy1} \:\&\!\!w \,\mathit{dy2} \:\&\!\!w \,\mathit{dy7} -\mathit{dy1} \:\&\!\!w \,\mathit{dy5} \:\&\!\!w \,\mathit{dy2} \:\&\!\!w \,\mathit{dy6} -\mathit{dy1} \:\&\!\!w \,\mathit{dy5} \:\&\!\!w \,\mathit{dy3} \:\&\!\!w \,\mathit{dy7} -\mathit{dy2} \:\&\!\!w \,\mathit{dy6} \:\&\!\!w \,\mathit{dy3} \:\&\!\!w \,\mathit{dy7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(7)}
+\mathit{psiy} \coloneqq -\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy7} +\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} +\mathit{dy1} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} +\mathit{dy1} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy7} -\mathit{dy2} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} +\mathit{dy2} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} +\mathit{dy4} \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{Phiy} \coloneqq \mathit{evalDG} (\mathit{dy0} \:\&\!\!w \,\mathrm{phi}+\mathrm{psi}); $}
+
+% \mapleresult
+\begin{dmath}\label{(8)}
+\mathit{Phiy} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3} +\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} -\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} +\mathit{dy0} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} +\mathit{dy0} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy7} +\mathit{dy0} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy7} -\mathit{dy0} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} -\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy7} +\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} +\mathit{dy1} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} +\mathit{dy1} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy7} -\mathit{dy2} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} +\mathit{dy2} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} +\mathit{dy4} \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{phix} \coloneqq \mathit{evalDG} (\mathit{dx1} \:\&\!\!w \,\mathit{dx2} \:\&\!\!w \,\mathit{dx3} -\mathit{dx1} \:\&\!\!w \,\mathit{dx6} \:\&\!\!w \,\mathit{dx7} -\mathit{dx5} \:\&\!\!w \,\mathit{dx2} \:\&\!\!w \,\mathit{dx7} -\mathit{dx5} \:\&\!\!w \,\mathit{dx6} \:\&\!\!w \,\mathit{dx3} -\mathit{dx4} \:\&\!\!w \,\mathit{dx1} \:\&\!\!w \,\mathit{dx5} -\mathit{dx4} \:\&\!\!w \,\mathit{dx2} \:\&\!\!w \,\mathit{dx6} -\mathit{dx4} \:\&\!\!w \,\mathit{dx3} \:\&\!\!w \,\mathit{dx7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(9)}
+\mathit{phix} \coloneqq \mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3} +\mathit{dx1} \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5} -\mathit{dx1} \bigwedge  \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{dx2} \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx6} +\mathit{dx2} \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx7} +\mathit{dx3} \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx7} -\mathit{dx3} \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{psix} \coloneqq \mathit{evalDG} (\mathit{dx4} \:\&\!\!w \,\mathit{dx5} \:\&\!\!w \,\mathit{dx6} \:\&\!\!w \,\mathit{dx7} -\mathit{dx4} \:\&\!\!w \,\mathit{dx5} \:\&\!\!w \,\mathit{dx2} \:\&\!\!w \,\mathit{dx3} -\mathit{dx4} \:\&\!\!w \,\mathit{dx1} \:\&\!\!w \,\mathit{dx6} \:\&\!\!w \,\mathit{dx3} -\mathit{dx4} \:\&\!\!w \,\mathit{dx1} \:\&\!\!w \,\mathit{dx2} \:\&\!\!w \,\mathit{dx7} -\mathit{dx1} \:\&\!\!w \,\mathit{dx5} \:\&\!\!w \,\mathit{dx2} \:\&\!\!w \,\mathit{dx6} -\mathit{dx1} \:\&\!\!w \,\mathit{dx5} \:\&\!\!w \,\mathit{dx3} \:\&\!\!w \,\mathit{dx7} -\mathit{dx2} \:\&\!\!w \,\mathit{dx6} \:\&\!\!w \,\mathit{dx3} \:\&\!\!w \,\mathit{dx7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(10)}
+\mathit{psix} \coloneqq -\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx7} +\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6} +\mathit{dx1} \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx6} +\mathit{dx1} \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx7} -\mathit{dx2} \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5} +\mathit{dx2} \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{dx4} \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6}  \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \,\mathit{with} \,\mathit{respect} \,\mathrm{to}\,\mathit{the} \,\mathit{Spin7} \,\mathit{structure} \,\backslash \mathrm{Phi},\mathit{we} \,\mathit{have} \,\backslash \mathit{star} (a \,\backslash w \,b \,\backslash w \,\backslash \mathrm{Phi})=\,b \,\backslash \mathit{hk} \,a \,\backslash \mathit{hk} \,\backslash \mathrm{Phi},\land \,\mathit{thus} \,\backslash \textit{pi\_7} \cdot (a \,\backslash w \,b)=\,( 0.25)\cdot (a \,\backslash w \,b -b \,\backslash \mathit{hk} \,a \,\backslash \mathit{hk} \,\backslash \mathrm{Phi})\, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,now\,we\,define\,the\,7\,omegas\,in\,terms\,of\,the\,ys.\,This\,is\,the\,correct\,overall\,length\,scale\,to\,give\,us\,complex\,structures\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{o1} \coloneqq \mathit{evalDG} ((\mathit{dy0} \,\:\&\!\!w \,\mathit{dy1} -\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1}],\mathrm{Phi}))); $}
+
+% \mapleresult
+\begin{dmath}\label{(11)}
+\mathit{o1} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy1} -\mathit{dy2} \bigwedge  \mathit{dy3} -\mathit{dy4} \bigwedge  \mathit{dy5} +\mathit{dy6} \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{o2} \coloneqq \mathit{evalDG} ((\mathit{dy0} \,\:\&\!\!w \,\mathit{dy2} -\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y2}],\mathrm{Phi})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(12)}
+\mathit{o2} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy2} +\mathit{dy1} \bigwedge  \mathit{dy3} -\mathit{dy4} \bigwedge  \mathit{dy6} -\mathit{dy5} \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{o3} \coloneqq \mathit{evalDG} ((\mathit{dy0} \,\:\&\!\!w \,\mathit{dy3} -\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y3}],\mathrm{Phi})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(13)}
+\mathit{o3} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy3} -\mathit{dy1} \bigwedge  \mathit{dy2} -\mathit{dy4} \bigwedge  \mathit{dy7} +\mathit{dy5} \bigwedge  \mathit{dy6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{o4} \coloneqq \mathit{evalDG} ((\mathit{dy0} \,\:\&\!\!w \,\mathit{dy4} -\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y4}],\mathrm{Phi})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(14)}
+\mathit{o4} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy4} +\mathit{dy1} \bigwedge  \mathit{dy5} +\mathit{dy2} \bigwedge  \mathit{dy6} +\mathit{dy3} \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{o5} \coloneqq \mathit{evalDG} ((\mathit{dy0} \,\:\&\!\!w \,\mathit{dy5} -\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y5}],\mathrm{Phi})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(15)}
+\mathit{o5} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy5} -\mathit{dy1} \bigwedge  \mathit{dy4} +\mathit{dy2} \bigwedge  \mathit{dy7} -\mathit{dy3} \bigwedge  \mathit{dy6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{o6} \coloneqq \mathit{evalDG} ((\mathit{dy0} \,\:\&\!\!w \,\mathit{dy6} -\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y6}],\mathrm{Phi})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(16)}
+\mathit{o6} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy6} -\mathit{dy1} \bigwedge  \mathit{dy7} -\mathit{dy2} \bigwedge  \mathit{dy4} +\mathit{dy3} \bigwedge  \mathit{dy5} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{o7} \coloneqq \mathit{evalDG} ((\mathit{dy0} \,\:\&\!\!w \,\mathit{dy7} -\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y7}],\mathrm{Phi})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(17)}
+\mathit{o7} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy7} +\mathit{dy1} \bigwedge  \mathit{dy6} -\mathit{dy2} \bigwedge  \mathit{dy5} -\mathit{dy3} \bigwedge  \mathit{dy4} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st8o1} \coloneqq \mathit{evalDG} (-\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mathit{HodgeStar} (g ,\mathit{o1}))); $}
+
+% \mapleresult
+\begin{dmath}\label{(18)}
+\mathit{st8o1} \coloneqq -\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4} 
+\\
+ \bigwedge  \mathit{dy5} +\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} +\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy2} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st8o2} \coloneqq \mathit{evalDG} (-\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mathit{HodgeStar} (g ,\mathit{o2}))); $}
+
+% \mapleresult
+\begin{dmath}\label{(19)}
+\mathit{st8o2} \coloneqq -\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4} 
+\\
+ \bigwedge  \mathit{dy6} -\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy7} +\mathit{dy0} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} +\mathit{dy1} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st8o3} \coloneqq \mathit{evalDG} (-\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mathit{HodgeStar} (g ,\mathit{o3})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(20)}
+\mathit{st8o3} \coloneqq -\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4} 
+\\
+ \bigwedge  \mathit{dy7} +\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy6} +\mathit{dy0} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st8o4} \coloneqq \mathit{evalDG} (-\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mathit{HodgeStar} (g ,\mathit{o4})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(21)}
+\mathit{st8o4} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy6} +\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy7} +\mathit{dy0} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} +\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st8o5} \coloneqq \mathit{evalDG} (-\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mathit{HodgeStar} (g ,\mathit{o5})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(22)}
+\mathit{st8o5} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy6} +\mathit{dy0} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st8o6} \coloneqq \mathit{evalDG} (-\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mathit{HodgeStar} (g ,\mathit{o6})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(23)}
+\mathit{st8o6} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy0} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy6} +\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st8o7} \coloneqq \mathit{evalDG} (-\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mathit{HodgeStar} (g ,\mathit{o7})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(24)}
+\mathit{st8o7} \coloneqq \mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} +\mathit{dy0} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy0} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy7} -\mathit{dy1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} 
+\\
+ \bigwedge  \mathit{dy6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st7dx1} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{HodgeStar} (g ,\mathit{dx1}))); $}
+
+% \mapleresult
+\begin{dmath}\label{(25)}
+\mathit{st7dx1} \coloneqq 
+\\
+\mathit{dx2} \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5}  
+\\
+\bigwedge  \mathit{dx6} 
+\\
+ \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st7dx2} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{HodgeStar} (g ,\mathit{dx2})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(26)}
+\mathit{st7dx2} \coloneqq -\mathit{dx1} \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6} 
+\\
+ \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st7dx3} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{HodgeStar} (g ,\mathit{dx3})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(27)}
+\mathit{st7dx3} \coloneqq 
+\\
+\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5}  
+\\
+\bigwedge  \mathit{dx6} 
+\\
+ \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st7dx4} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{HodgeStar} (g ,\mathit{dx4})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(28)}
+\mathit{st7dx4} \coloneqq -\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6} 
+\\
+ \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st7dx5} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{HodgeStar} (g ,\mathit{dx5})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(29)}
+\mathit{st7dx5} \coloneqq 
+\\
+\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  
+\\
+\bigwedge  \mathit{dx6} 
+\\
+ \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st7dx6} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{HodgeStar} (g ,\mathit{dx6})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(30)}
+\mathit{st7dx6} \coloneqq -\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5} 
+\\
+ \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{st7dx7} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{HodgeStar} (g ,\mathit{dx7})));\, $}
+
+% \mapleresult
+\begin{dmath}\label{(31)}
+\mathit{st7dx7} \coloneqq 
+\\
+\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  
+\\
+\bigwedge  \mathit{dx5} 
+\\
+ \bigwedge  \mathit{dx6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{ph7} \coloneqq \mathit{evalDG} (\mathit{vol7} +\mathit{dx1} \:\&\!\!w \,\mathit{st8o1} +\mathit{dx2} \:\&\!\!w \,\mathit{st8o2} +\mathit{dx3} \:\&\!\!w \,\mathit{st8o3} +\mathit{dx4} \:\&\!\!w \,\mathit{st8o4} +\mathit{dx5} \:\&\!\!w \,\mathit{st8o5} +\mathit{dx6} \:\&\!\!w \,\mathit{st8o6} +\mathit{dx7} \:\&\!\!w \,\mathit{st8o7})\colon \,\esnum \mathit{\,made\,up\,of\,29\,decomposable\,7-forms\,???\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{ps8} \coloneqq \mathit{evalDG} (\mathit{vol8} -\mathit{st7dx1} \:\&\!\!w \,\mathit{o1} -\mathit{st7dx2} \:\&\!\!w \,\mathit{o2} -\mathit{st7dx3} \:\&\!\!w \,\mathit{o3} -\mathit{st7dx4} \:\&\!\!w \,\mathit{o4} -\mathit{st7dx5} \:\&\!\!w \,\mathit{o5} -\mathit{st7dx6} \:\&\!\!w \,\mathit{o6} -\mathit{st7dx7} \:\&\!\!w \,\mathit{o7})\colon \,\esnum \mathit{\,made\,up\,of\,29\,decomposable\,8-forms\,???\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,sanity\,check\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{ph7} \:\&\!\!w \,\mathit{ps8})); $}
+
+% \mapleresult
+\begin{dmath}\label{(32)}
+29
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3}],\mathit{ph7})\,\:\&\!\!w \,\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3}],\mathit{ph7})\:\&\!\!w \,\mathit{ph7}));\,\esnum \mathit{\,3\,x\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(33)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{Hook} ([\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3}],\mathit{ph7})\,\:\&\!\!w \,\mathit{Hook} ([\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3}],\mathit{ph7})\:\&\!\!w \,\mathit{ph7}));\,\esnum \mathit{\,3\,y\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(34)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_y3}],\mathit{ph7})\,\:\&\!\!w \,\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_y3}],\mathit{ph7})\:\&\!\!w \,\mathit{ph7}));\,\esnum \mathit{\,2\,x\,and\,1\,y\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(35)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_y2} ,\textit{D\_y3}],\mathit{ph7})\,\:\&\!\!w \,\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_y2} ,\textit{D\_y3}],\mathit{ph7})\:\&\!\!w \,\mathit{ph7}));\,\esnum \mathit{\,1\,x\,and\,2\,y\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(36)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,so\,the\,7-form\,idea\,does\,not\,work.\,Let's\,try\,a\,3-form\,q3\,on\,R15\,with\,a\,dual\,12-form\,q12\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{q3} \coloneqq \mathit{evalDG} (\mathit{phix} +\mathit{dx1} \:\&\!\!w \,\mathit{o1} +\mathit{dx2} \:\&\!\!w \,\mathit{o2} +\mathit{dx3} \:\&\!\!w \,\mathit{o3} +\mathit{dx4} \:\&\!\!w \,\mathit{o4} +\mathit{dx5} \:\&\!\!w \,\mathit{o5} +\mathit{dx6} \:\&\!\!w \,\mathit{o6} +\mathit{dx7} \:\&\!\!w \,\mathit{o7}); $}
+
+% \mapleresult
+\begin{dmath}\label{(37)}
+\mathit{q3} \coloneqq \mathit{dx6} \bigwedge  \mathit{dy0}  \bigwedge  \mathit{dy6} +\mathit{dx2} \bigwedge  \mathit{dy0}  \bigwedge  \mathit{dy2} +\mathit{dx7} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy6} -\mathit{dx6} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy4} -\mathit{dx2} \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy7} +\mathit{dx1} \bigwedge  \mathit{dy0}  \bigwedge  \mathit{dy1} -\mathit{dx5} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy4} +\mathit{dx3} \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} -\mathit{dx1} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3} -\mathit{dx7} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4} -\mathit{dx7} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy5} +\mathit{dx2} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy3} -\mathit{dx3} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2} -\mathit{dx5} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy6} +\mathit{dx3} \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx7} +\mathit{dx6} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy5} +\mathit{dx7} \bigwedge  \mathit{dy0}  \bigwedge  \mathit{dy7} -\mathit{dx6} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy7} +\mathit{dx1} \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3} +\mathit{dx2} \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx7} +\mathit{dx4} \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy7} +\mathit{dx1} \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5} +\mathit{dx5} \bigwedge  \mathit{dy0}  \bigwedge  \mathit{dy5} -\mathit{dx1} \bigwedge  \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{dx1} \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} +\mathit{dx3} \bigwedge  \mathit{dy0}  \bigwedge  \mathit{dy3} +\mathit{dx2} \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx6} -\mathit{dx1} \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5} -\mathit{dx3} \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy7} +\mathit{dx4} \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy5} -\mathit{dx3} \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6} +\mathit{dx4} \bigwedge  \mathit{dy0}  \bigwedge  \mathit{dy4} -\mathit{dx2} \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy6} +\mathit{dx4} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy6} +\mathit{dx5} \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{q12} \coloneqq \mathit{evalDG} (\mathit{psix} \:\&\!\!w \,\mathit{vol8} -\mathit{st7dx1} \:\&\!\!w \,\mathit{st8o1} -\mathit{st7dx2} \:\&\!\!w \,\mathit{st8o2} -\mathit{st7dx3} \:\&\!\!w \,\mathit{st8o3} -\mathit{st7dx4} \:\&\!\!w \,\mathit{st8o4} -\mathit{st7dx5} \:\&\!\!w \,\mathit{st8o5} -\mathit{st7dx6} \:\&\!\!w \,\mathit{st8o6} -\mathit{st7dx7} \:\&\!\!w \,\mathit{st8o7})\colon  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{q3} \:\&\!\!w \,\mathit{q12})); $}
+
+% \mapleresult
+\begin{dmath}\label{(38)}
+35
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{b1} \coloneqq \mathit{evalDG} (\mathit{Hook} (\textit{D\_x1} ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(39)}
+\mathit{b1} \coloneqq \mathit{dx2} \bigwedge  \mathit{dx3} +\mathit{dx4} \bigwedge  \mathit{dx5} -\mathit{dx6} \bigwedge  \mathit{dx7} +\mathit{dy0} \bigwedge  \mathit{dy1} -\mathit{dy2} \bigwedge  \mathit{dy3} -\mathit{dy4} \bigwedge  \mathit{dy5} +\mathit{dy6} \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{b2} \coloneqq \mathit{evalDG} (\mathit{Hook} (\textit{D\_x2} ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(40)}
+\mathit{b2} \coloneqq -\mathit{dx1} \bigwedge  \mathit{dx3} +\mathit{dx4} \bigwedge  \mathit{dx6} +\mathit{dx5} \bigwedge  \mathit{dx7} +\mathit{dy0} \bigwedge  \mathit{dy2} +\mathit{dy1} \bigwedge  \mathit{dy3} -\mathit{dy4} \bigwedge  \mathit{dy6} -\mathit{dy5} \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{c1} \coloneqq \mathit{evalDG} (\mathit{Hook} (\textit{D\_y1} ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(41)}
+\mathit{c1} \coloneqq \mathit{dx1} \bigwedge  \mathit{dy0} -\mathit{dx2} \bigwedge  \mathit{dy3} +\mathit{dx3} \bigwedge  \mathit{dy2} -\mathit{dx4} \bigwedge  \mathit{dy5} +\mathit{dx5} \bigwedge  \mathit{dy4} +\mathit{dx6} \bigwedge  \mathit{dy7} -\mathit{dx7} \bigwedge  \mathit{dy6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{c2} \coloneqq \mathit{evalDG} (\mathit{Hook} (\textit{D\_y2} ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(42)}
+\mathit{c2} \coloneqq \mathit{dx1} \bigwedge  \mathit{dy3} +\mathit{dx2} \bigwedge  \mathit{dy0} -\mathit{dx3} \bigwedge  \mathit{dy1} -\mathit{dx4} \bigwedge  \mathit{dy6} -\mathit{dx5} \bigwedge  \mathit{dy7} +\mathit{dx6} \bigwedge  \mathit{dy4} +\mathit{dx7} \bigwedge  \mathit{dy5} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{q3}));\,\esnum \mathit{\,6\,b1\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(43)}
+-5040
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{q3}));\,\esnum \mathit{\,5\,b1\,and\,1\,b2\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(44)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{q3}));\,\esnum \mathit{\,4\,b1\,and\,2\,b2\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(45)}
+-1008
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{q3}));\,\esnum \mathit{\,3\,b1\,and\,3\,b2\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(46)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{q3}));\,\esnum \mathit{\,5\,b1\,and\,1\,c1\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(47)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{q3}));\,\esnum \mathit{\,4\,b1\,and\,2\,c1\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(48)}
+-1008
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{q3}));\,\esnum \mathit{\,3\,b1\,and\,3\,c1\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(49)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{q3}));\esnum \mathit{\,6\,c1\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(50)}
+-5040
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c2} \:\&\!\!w \,\mathit{q3}));\esnum \mathit{\,5\,c1\,and\,1\,c2\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(51)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c2} \:\&\!\!w \,\mathit{c2} \:\&\!\!w \,\mathit{q3}));\esnum \mathit{\,4\,c1\,and\,2\,c2\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(52)}
+-1008
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c2} \:\&\!\!w \,\mathit{c2} \:\&\!\!w \,\mathit{c2} \:\&\!\!w \,\mathit{q3}));\esnum \mathit{\,3\,c1\,and\,3\,c2\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(53)}
+0
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{b1} \:\&\!\!w \,\mathit{b1} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{b2} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{c1} \:\&\!\!w \,\mathit{q3}));\esnum \mathit{\,2\,b1\,and\,2\,b2\,and\,2\,c1\,}  $}
+
+% \mapleresult
+\begin{dmath}\label{(54)}
+-112
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,probably\,we\,need\,an\,even\,number\,of\,each?\,Seems\,to\,be\,the\,case.\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,note\,the\,following\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \frac{5040}{1008} $}
+
+% \mapleresult
+\begin{dmath}\label{(55)}
+5
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \frac{1008}{112} $}
+
+% \mapleresult
+\begin{dmath}\label{(56)}
+9
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,something\,interesting\,could\,be\,happening\,here.\,It\,seems\,that\,we\,are\,we\,getting\,-\,5040\,|v|\,}^{6}\,\textit{vol\_15} \,\mathit{here} \mathit{? Is this consistent with polarization?} $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,let's\,test\,something\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,first\,with\,two\,components\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} v \coloneqq \mathit{evalDG} (\mathit{A1} \cdot \textit{D\_x1} +\mathit{A2} \cdot \textit{D\_x2}); $}
+
+% \mapleresult
+\begin{dmath}\label{(57)}
+v \coloneqq \mathit{A1} \textit{D\_x1} +\mathit{A2} \textit{D\_x2} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkq3} \coloneqq \mathit{evalDG} (\mathit{Hook} (v ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(58)}
+\mathit{vhkq3} \coloneqq -\mathit{A2} \mathit{dx1}  \bigwedge  \mathit{dx3} +\mathit{A1} \mathit{dx2}  \bigwedge  \mathit{dx3} +\mathit{A1} \mathit{dx4}  \bigwedge  \mathit{dx5} +\mathit{A2} \mathit{dx4}  \bigwedge  \mathit{dx6} +\mathit{A2} \mathit{dx5}  \bigwedge  \mathit{dx7} -\mathit{A1} \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{A1} \mathit{dy0}  \bigwedge  \mathit{dy1} +\mathit{A2} \mathit{dy0}  \bigwedge  \mathit{dy2} +\mathit{A2} \mathit{dy1}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy2}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy4}  \bigwedge  \mathit{dy5} -\mathit{A2} \mathit{dy4}  \bigwedge  \mathit{dy6} -\mathit{A2} \mathit{dy5}  \bigwedge  \mathit{dy7} +\mathit{A1} \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{metv} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(59)}
+\mathit{metv} \coloneqq -5040 \mathit{A1}^{6}-15120 \mathit{A1}^{4} \mathit{A2}^{2}-15120 \mathit{A1}^{2} \mathit{A2}^{4}-5040 \mathit{A2}^{6}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(59)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(60)}
+-5040 \left(\mathit{A1}^{2}+\mathit{A2}^{2}\right)^{3}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} v \coloneqq \mathit{evalDG} (\mathit{B1} \cdot \textit{D\_y1} +\mathit{B2} \cdot \textit{D\_y2}); $}
+
+% \mapleresult
+\begin{dmath}\label{(61)}
+v \coloneqq \mathit{B1} \textit{D\_y1} +\mathit{B2} \textit{D\_y2} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkq3} \coloneqq \mathit{evalDG} (\mathit{Hook} (v ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(62)}
+\mathit{vhkq3} \coloneqq \mathit{B1} \mathit{dx1}  \bigwedge  \mathit{dy0} +\mathit{B2} \mathit{dx1}  \bigwedge  \mathit{dy3} +\mathit{B2} \mathit{dx2}  \bigwedge  \mathit{dy0} -\mathit{B1} \mathit{dx2}  \bigwedge  \mathit{dy3} -\mathit{B2} \mathit{dx3}  \bigwedge  \mathit{dy1} +\mathit{B1} \mathit{dx3}  \bigwedge  \mathit{dy2} -\mathit{B1} \mathit{dx4}  \bigwedge  \mathit{dy5} -\mathit{B2} \mathit{dx4}  \bigwedge  \mathit{dy6} +\mathit{B1} \mathit{dx5}  \bigwedge  \mathit{dy4} -\mathit{B2} \mathit{dx5}  \bigwedge  \mathit{dy7} +\mathit{B2} \mathit{dx6}  \bigwedge  \mathit{dy4} +\mathit{B1} \mathit{dx6}  \bigwedge  \mathit{dy7} +\mathit{B2} \mathit{dx7}  \bigwedge  \mathit{dy5} -\mathit{B1} \mathit{dx7}  \bigwedge  \mathit{dy6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{metv} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(63)}
+\mathit{metv} \coloneqq -5040 \mathit{B1}^{6}-15120 \mathit{B1}^{4} \mathit{B2}^{2}-15120 \mathit{B1}^{2} \mathit{B2}^{4}-5040 \mathit{B2}^{6}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(63)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(64)}
+-5040 \left(\mathit{B1}^{2}+\mathit{B2}^{2}\right)^{3}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} v \coloneqq \mathit{evalDG} (\mathit{A1} \cdot \textit{D\_x1} +\mathit{B1} \cdot \textit{D\_y1}); $}
+
+% \mapleresult
+\begin{dmath}\label{(65)}
+v \coloneqq \mathit{A1} \textit{D\_x1} +\mathit{B1} \textit{D\_y1} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkq3} \coloneqq \mathit{evalDG} (\mathit{Hook} (v ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(66)}
+\mathit{vhkq3} \coloneqq \mathit{B1} \mathit{dx1}  \bigwedge  \mathit{dy0} +\mathit{A1} \mathit{dx2}  \bigwedge  \mathit{dx3} -\mathit{B1} \mathit{dx2}  \bigwedge  \mathit{dy3} +\mathit{B1} \mathit{dx3}  \bigwedge  \mathit{dy2} +\mathit{A1} \mathit{dx4}  \bigwedge  \mathit{dx5} -\mathit{B1} \mathit{dx4}  \bigwedge  \mathit{dy5} +\mathit{B1} \mathit{dx5}  \bigwedge  \mathit{dy4} -\mathit{A1} \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{B1} \mathit{dx6}  \bigwedge  \mathit{dy7} -\mathit{B1} \mathit{dx7}  \bigwedge  \mathit{dy6} +\mathit{A1} \mathit{dy0}  \bigwedge  \mathit{dy1} -\mathit{A1} \mathit{dy2}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy4}  \bigwedge  \mathit{dy5} +\mathit{A1} \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{metv} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(67)}
+\mathit{metv} \coloneqq -5040 \mathit{A1}^{6}-15120 \mathit{A1}^{4} \mathit{B1}^{2}-15120 \mathit{A1}^{2} \mathit{B1}^{4}-5040 \mathit{B1}^{6}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(67)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(68)}
+-5040 \left(\mathit{A1}^{2}+\mathit{B1}^{2}\right)^{3}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,now\,with\,three\,components\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} v \coloneqq \mathit{evalDG} (\mathit{A1} \cdot \textit{D\_x1} +\mathit{A2} \cdot \textit{D\_x2} +\mathit{A3} \cdot \textit{D\_x3}); $}
+
+% \mapleresult
+\begin{dmath}\label{(69)}
+v \coloneqq \mathit{A1} \textit{D\_x1} +\mathit{A2} \textit{D\_x2} +\mathit{A3} \textit{D\_x3} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkq3} \coloneqq \mathit{evalDG} (\mathit{Hook} (v ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(70)}
+\mathit{vhkq3} \coloneqq \mathit{A3} \mathit{dx1}  \bigwedge  \mathit{dx2} -\mathit{A2} \mathit{dx1}  \bigwedge  \mathit{dx3} +\mathit{A1} \mathit{dx2}  \bigwedge  \mathit{dx3} +\mathit{A1} \mathit{dx4}  \bigwedge  \mathit{dx5} +\mathit{A2} \mathit{dx4}  \bigwedge  \mathit{dx6} +\mathit{A3} \mathit{dx4}  \bigwedge  \mathit{dx7} -\mathit{A3} \mathit{dx5}  \bigwedge  \mathit{dx6} +\mathit{A2} \mathit{dx5}  \bigwedge  \mathit{dx7} -\mathit{A1} \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{A1} \mathit{dy0}  \bigwedge  \mathit{dy1} +\mathit{A2} \mathit{dy0}  \bigwedge  \mathit{dy2} +\mathit{A3} \mathit{dy0}  \bigwedge  \mathit{dy3} -\mathit{A3} \mathit{dy1}  \bigwedge  \mathit{dy2} +\mathit{A2} \mathit{dy1}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy2}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy4}  \bigwedge  \mathit{dy5} -\mathit{A2} \mathit{dy4}  \bigwedge  \mathit{dy6} -\mathit{A3} \mathit{dy4}  \bigwedge  \mathit{dy7} +\mathit{A3} \mathit{dy5}  \bigwedge  \mathit{dy6} -\mathit{A2} \mathit{dy5}  \bigwedge  \mathit{dy7} +\mathit{A1} \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{metv} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(71)}
+\mathit{metv} \coloneqq -5040 \mathit{A1}^{6}-15120 \mathit{A1}^{4} \mathit{A2}^{2}-15120 \mathit{A1}^{4} \mathit{A3}^{2}-15120 \mathit{A1}^{2} \mathit{A2}^{4}-30240 \mathit{A1}^{2} \mathit{A2}^{2} \mathit{A3}^{2}-15120 \mathit{A1}^{2} \mathit{A3}^{4}-5040 \mathit{A2}^{6}-15120 \mathit{A2}^{4} \mathit{A3}^{2}-15120 \mathit{A2}^{2} \mathit{A3}^{4}-5040 \mathit{A3}^{6}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(71)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(72)}
+-5040 \left(\mathit{A1}^{2}+\mathit{A2}^{2}+\mathit{A3}^{2}\right)^{3}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} v \coloneqq \mathit{evalDG} (\mathit{A1} \cdot \textit{D\_x1} +\mathit{A2} \cdot \textit{D\_x2} +\mathit{B1} \cdot \textit{D\_y1}); $}
+
+% \mapleresult
+\begin{dmath}\label{(73)}
+v \coloneqq \mathit{A1} \textit{D\_x1} +\mathit{A2} \textit{D\_x2} +\mathit{B1} \textit{D\_y1} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkq3} \coloneqq \mathit{evalDG} (\mathit{Hook} (v ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(74)}
+\mathit{vhkq3} \coloneqq -\mathit{A2} \mathit{dx1}  \bigwedge  \mathit{dx3} +\mathit{B1} \mathit{dx1}  \bigwedge  \mathit{dy0} +\mathit{A1} \mathit{dx2}  \bigwedge  \mathit{dx3} -\mathit{B1} \mathit{dx2}  \bigwedge  \mathit{dy3} +\mathit{B1} \mathit{dx3}  \bigwedge  \mathit{dy2} +\mathit{A1} \mathit{dx4}  \bigwedge  \mathit{dx5} +\mathit{A2} \mathit{dx4}  \bigwedge  \mathit{dx6} -\mathit{B1} \mathit{dx4}  \bigwedge  \mathit{dy5} +\mathit{A2} \mathit{dx5}  \bigwedge  \mathit{dx7} +\mathit{B1} \mathit{dx5}  \bigwedge  \mathit{dy4} -\mathit{A1} \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{B1} \mathit{dx6}  \bigwedge  \mathit{dy7} -\mathit{B1} \mathit{dx7}  \bigwedge  \mathit{dy6} +\mathit{A1} \mathit{dy0}  \bigwedge  \mathit{dy1} +\mathit{A2} \mathit{dy0}  \bigwedge  \mathit{dy2} +\mathit{A2} \mathit{dy1}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy2}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy4}  \bigwedge  \mathit{dy5} -\mathit{A2} \mathit{dy4}  \bigwedge  \mathit{dy6} -\mathit{A2} \mathit{dy5}  \bigwedge  \mathit{dy7} +\mathit{A1} \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{metv} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(75)}
+\mathit{metv} \coloneqq -5040 \mathit{A1}^{6}-15120 \mathit{A1}^{4} \mathit{A2}^{2}-15120 \mathit{A1}^{4} \mathit{B1}^{2}-15120 \mathit{A1}^{2} \mathit{A2}^{4}-10080 \mathit{A1}^{2} \mathit{A2}^{2} \mathit{B1}^{2}-15120 \mathit{A1}^{2} \mathit{B1}^{4}-5040 \mathit{A2}^{6}+5040 \mathit{A2}^{4} \mathit{B1}^{2}+5040 \mathit{A2}^{2} \mathit{B1}^{4}-5040 \mathit{B1}^{6}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(75)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(76)}
+-5040 \left(\mathit{A1}^{2}+\mathit{A2}^{2}+\mathit{B1}^{2}\right) \left(\mathit{A1}^{2}+\mathit{A2}^{2}+2 \mathit{A2} \mathit{B1} +\mathit{B1}^{2}\right) \left(\mathit{A1}^{2}+\mathit{A2}^{2}-2 \mathit{A2} \mathit{B1} +\mathit{B1}^{2}\right)
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} v \coloneqq \mathit{evalDG} (\mathit{A1} \cdot \textit{D\_x1} +\mathit{B1} \cdot \textit{D\_y1} +\mathit{B2} \cdot \textit{D\_y2}); $}
+
+% \mapleresult
+\begin{dmath}\label{(77)}
+v \coloneqq \mathit{A1} \textit{D\_x1} +\mathit{B1} \textit{D\_y1} +\mathit{B2} \textit{D\_y2} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkq3} \coloneqq \mathit{evalDG} (\mathit{Hook} (v ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(78)}
+\mathit{vhkq3} \coloneqq \mathit{B1} \mathit{dx1}  \bigwedge  \mathit{dy0} +\mathit{B2} \mathit{dx1}  \bigwedge  \mathit{dy3} +\mathit{A1} \mathit{dx2}  \bigwedge  \mathit{dx3} +\mathit{B2} \mathit{dx2}  \bigwedge  \mathit{dy0} -\mathit{B1} \mathit{dx2}  \bigwedge  \mathit{dy3} -\mathit{B2} \mathit{dx3}  \bigwedge  \mathit{dy1} +\mathit{B1} \mathit{dx3}  \bigwedge  \mathit{dy2} +\mathit{A1} \mathit{dx4}  \bigwedge  \mathit{dx5} -\mathit{B1} \mathit{dx4}  \bigwedge  \mathit{dy5} -\mathit{B2} \mathit{dx4}  \bigwedge  \mathit{dy6} +\mathit{B1} \mathit{dx5}  \bigwedge  \mathit{dy4} -\mathit{B2} \mathit{dx5}  \bigwedge  \mathit{dy7} -\mathit{A1} \mathit{dx6}  \bigwedge  \mathit{dx7} +\mathit{B2} \mathit{dx6}  \bigwedge  \mathit{dy4} +\mathit{B1} \mathit{dx6}  \bigwedge  \mathit{dy7} +\mathit{B2} \mathit{dx7}  \bigwedge  \mathit{dy5} -\mathit{B1} \mathit{dx7}  \bigwedge  \mathit{dy6} +\mathit{A1} \mathit{dy0}  \bigwedge  \mathit{dy1} -\mathit{A1} \mathit{dy2}  \bigwedge  \mathit{dy3} -\mathit{A1} \mathit{dy4}  \bigwedge  \mathit{dy5} +\mathit{A1} \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{metv} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(79)}
+\mathit{metv} \coloneqq -5040 \mathit{A1}^{6}-15120 \mathit{A1}^{4} \mathit{B1}^{2}+5040 \mathit{A1}^{4} \mathit{B2}^{2}-15120 \mathit{A1}^{2} \mathit{B1}^{4}-10080 \mathit{A1}^{2} \mathit{B1}^{2} \mathit{B2}^{2}+5040 \mathit{A1}^{2} \mathit{B2}^{4}-5040 \mathit{B1}^{6}-15120 \mathit{B1}^{4} \mathit{B2}^{2}-15120 \mathit{B1}^{2} \mathit{B2}^{4}-5040 \mathit{B2}^{6}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(79)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(80)}
+-5040 \left(\mathit{A1}^{2}+\mathit{B1}^{2}+\mathit{B2}^{2}\right) \left(\mathit{A1}^{2}+2 \mathit{A1} \mathit{B2} +\mathit{B1}^{2}+\mathit{B2}^{2}\right) \left(\mathit{A1}^{2}-2 \mathit{A1} \mathit{B2} +\mathit{B1}^{2}+\mathit{B2}^{2}\right)
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} v \coloneqq \mathit{evalDG} (\mathit{B1} \cdot \textit{D\_y1} +\mathit{B2} \cdot \textit{D\_y2} +\mathit{B3} \cdot \textit{D\_y3}); $}
+
+% \mapleresult
+\begin{dmath}\label{(81)}
+v \coloneqq \mathit{B1} \textit{D\_y1} +\mathit{B2} \textit{D\_y2} +\mathit{B3} \textit{D\_y3} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkq3} \coloneqq \mathit{evalDG} (\mathit{Hook} (v ,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(82)}
+\mathit{vhkq3} \coloneqq \mathit{B1} \mathit{dx1}  \bigwedge  \mathit{dy0} -\mathit{B3} \mathit{dx1}  \bigwedge  \mathit{dy2} +\mathit{B2} \mathit{dx1}  \bigwedge  \mathit{dy3} +\mathit{B2} \mathit{dx2}  \bigwedge  \mathit{dy0} +\mathit{B3} \mathit{dx2}  \bigwedge  \mathit{dy1} -\mathit{B1} \mathit{dx2}  \bigwedge  \mathit{dy3} +\mathit{B3} \mathit{dx3}  \bigwedge  \mathit{dy0} -\mathit{B2} \mathit{dx3}  \bigwedge  \mathit{dy1} +\mathit{B1} \mathit{dx3}  \bigwedge  \mathit{dy2} -\mathit{B1} \mathit{dx4}  \bigwedge  \mathit{dy5} -\mathit{B2} \mathit{dx4}  \bigwedge  \mathit{dy6} -\mathit{B3} \mathit{dx4}  \bigwedge  \mathit{dy7} +\mathit{B1} \mathit{dx5}  \bigwedge  \mathit{dy4} +\mathit{B3} \mathit{dx5}  \bigwedge  \mathit{dy6} -\mathit{B2} \mathit{dx5}  \bigwedge  \mathit{dy7} +\mathit{B2} \mathit{dx6}  \bigwedge  \mathit{dy4} -\mathit{B3} \mathit{dx6}  \bigwedge  \mathit{dy5} +\mathit{B1} \mathit{dx6}  \bigwedge  \mathit{dy7} +\mathit{B3} \mathit{dx7}  \bigwedge  \mathit{dy4} +\mathit{B2} \mathit{dx7}  \bigwedge  \mathit{dy5} -\mathit{B1} \mathit{dx7}  \bigwedge  \mathit{dy6} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{metv} \coloneqq \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7} ,\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{vhkq3} \:\&\!\!w \,\mathit{q3})); $}
+
+% \mapleresult
+\begin{dmath}\label{(83)}
+\mathit{metv} \coloneqq -5040 \mathit{B1}^{6}-15120 \mathit{B1}^{4} \mathit{B2}^{2}-15120 \mathit{B1}^{4} \mathit{B3}^{2}-15120 \mathit{B1}^{2} \mathit{B2}^{4}-30240 \mathit{B1}^{2} \mathit{B2}^{2} \mathit{B3}^{2}-15120 \mathit{B1}^{2} \mathit{B3}^{4}-5040 \mathit{B2}^{6}-15120 \mathit{B2}^{4} \mathit{B3}^{2}-15120 \mathit{B2}^{2} \mathit{B3}^{4}-5040 \mathit{B3}^{6}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(83)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(84)}
+-5040 \left(\mathit{B1}^{2}+\mathit{B2}^{2}+\mathit{B3}^{2}\right)^{3}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \esnum \mathit{\,what\,is\,going\,on?\,It's\,definitely\,not\,exactly\,-5040\,|v|\,}^{6}\textit{vol\_15} \,\mathit{as} \,I \,\mathit{had} \,\mathit{guessed} . $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{o1} \:\&\!\!w \,\mathit{o1} \:\&\!\!w \,\mathit{o1} \,\:\&\!\!w \,\mathit{o1}); $}
+
+% \mapleresult
+\begin{dmath}\label{(85)}
+24 \mathit{dy0}  \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{o1} \:\&\!\!w \,\mathit{o1} \:\&\!\!w \,\mathit{o1} \,\:\&\!\!w \,\mathit{o2}); $}
+
+% \mapleresult
+\begin{dmath}\label{(86)}
+\mathit{0} \mathit{dx1}  \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6}  \bigwedge  \mathit{dx7} 
+\\
+ \bigwedge  \mathit{dy0} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{o1} \:\&\!\!w \,\mathit{o1} \:\&\!\!w \,\mathit{o2} \,\:\&\!\!w \,\mathit{o2}); $}
+
+% \mapleresult
+\begin{dmath}\label{(87)}
+8 \mathit{dy0}  \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6} 
+\\
+ \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{o1} \:\&\!\!w \,\mathit{o1} \:\&\!\!w \,\mathit{o2} \:\&\!\!w \,\mathit{o3}); $}
+
+% \mapleresult
+\begin{dmath}\label{(88)}
+\mathit{0} \mathit{dx1}  \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6}  \bigwedge  \mathit{dx7} 
+\\
+ \bigwedge  \mathit{dy0} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vo} \coloneqq \mathit{evalDG} (\mathit{v1} \cdot \mathit{o1} +\mathit{v2} \cdot \mathit{o2} +\mathit{v3} \cdot \mathit{o3} +\mathit{v4} \cdot \mathit{o4} +\mathit{v5} \cdot \mathit{o5} +\mathit{v6} \cdot \mathit{o6} +\mathit{v7} \cdot \mathit{o7})\colon  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{vo} \:\&\!\!w \,\mathit{vo} \:\&\!\!w \,\mathit{vo} \:\&\!\!w \,\mathit{vo}); $}
+
+% \mapleresult
+\begin{dmath}\label{(89)}
+\left(24 \mathit{v1}^{4}+48 \mathit{v1}^{2} \mathit{v2}^{2}+48 \mathit{v1}^{2} \mathit{v3}^{2}+48 \mathit{v1}^{2} \mathit{v4}^{2}+48 \mathit{v1}^{2} \mathit{v5}^{2}+48 \mathit{v1}^{2} \mathit{v6}^{2}+48 \mathit{v1}^{2} \mathit{v7}^{2}+24 \mathit{v2}^{4}+48 \mathit{v2}^{2} \mathit{v3}^{2}+48 \mathit{v2}^{2} \mathit{v4}^{2}+48 \mathit{v2}^{2} \mathit{v5}^{2}+48 \mathit{v2}^{2} \mathit{v6}^{2}+48 \mathit{v2}^{2} \mathit{v7}^{2}+24 \mathit{v3}^{4}+48 \mathit{v3}^{2} \mathit{v4}^{2}+48 \mathit{v3}^{2} \mathit{v5}^{2}+48 \mathit{v3}^{2} \mathit{v6}^{2}+48 \mathit{v3}^{2} \mathit{v7}^{2}+24 \mathit{v4}^{4}+48 \mathit{v4}^{2} \mathit{v5}^{2}+48 \mathit{v4}^{2} \mathit{v6}^{2}+48 \mathit{v4}^{2} \mathit{v7}^{2}+24 \mathit{v5}^{4}+48 \mathit{v5}^{2} \mathit{v6}^{2}+48 \mathit{v5}^{2} \mathit{v7}^{2}+24 \mathit{v6}^{4}+48 \mathit{v6}^{2} \mathit{v7}^{2}+24 \mathit{v7}^{4}\right) \mathit{dy0}  \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mapleref{(89)})); $}
+
+% \mapleresult
+\begin{dmath}\label{(90)}
+24 \mathit{v1}^{4}+48 \mathit{v1}^{2} \mathit{v2}^{2}+48 \mathit{v1}^{2} \mathit{v3}^{2}+48 \mathit{v1}^{2} \mathit{v4}^{2}+48 \mathit{v1}^{2} \mathit{v5}^{2}+48 \mathit{v1}^{2} \mathit{v6}^{2}+48 \mathit{v1}^{2} \mathit{v7}^{2}+24 \mathit{v2}^{4}+48 \mathit{v2}^{2} \mathit{v3}^{2}+48 \mathit{v2}^{2} \mathit{v4}^{2}+48 \mathit{v2}^{2} \mathit{v5}^{2}+48 \mathit{v2}^{2} \mathit{v6}^{2}+48 \mathit{v2}^{2} \mathit{v7}^{2}+24 \mathit{v3}^{4}+48 \mathit{v3}^{2} \mathit{v4}^{2}+48 \mathit{v3}^{2} \mathit{v5}^{2}+48 \mathit{v3}^{2} \mathit{v6}^{2}+48 \mathit{v3}^{2} \mathit{v7}^{2}+24 \mathit{v4}^{4}+48 \mathit{v4}^{2} \mathit{v5}^{2}+48 \mathit{v4}^{2} \mathit{v6}^{2}+48 \mathit{v4}^{2} \mathit{v7}^{2}+24 \mathit{v5}^{4}+48 \mathit{v5}^{2} \mathit{v6}^{2}+48 \mathit{v5}^{2} \mathit{v7}^{2}+24 \mathit{v6}^{4}+48 \mathit{v6}^{2} \mathit{v7}^{2}+24 \mathit{v7}^{4}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(90)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(91)}
+24 \left(\mathit{v1}^{2}+\mathit{v2}^{2}+\mathit{v3}^{2}+\mathit{v4}^{2}+\mathit{v5}^{2}+\mathit{v6}^{2}+\mathit{v7}^{2}\right)^{2}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,}  $}
+
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{vo} \:\&\!\!w \,\mathit{vo} \:\&\!\!w \,\mathit{vo} \:\&\!\!w \,\mathit{o1}); $}
+
+% \mapleresult
+\begin{dmath}\label{(92)}
+\left(24 \mathit{v1}^{3}+24 \mathit{v1} \,\mathit{v2}^{2}+24 \mathit{v1} \,\mathit{v3}^{2}+24 \mathit{v1} \,\mathit{v4}^{2}+24 \mathit{v1} \,\mathit{v5}^{2}+24 \mathit{v1} \,\mathit{v6}^{2}+24 \mathit{v1} \,\mathit{v7}^{2}\right) \mathit{dy0}  \bigwedge  \mathit{dy1}  \bigwedge  \mathit{dy2}  \bigwedge  \mathit{dy3}  \bigwedge  \mathit{dy4}  \bigwedge  \mathit{dy5}  \bigwedge  \mathit{dy6}  \bigwedge  \mathit{dy7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \,\mathit{evalDG} (\mathit{Hook} ([\textit{D\_y0} ,\textit{D\_y1} ,\textit{D\_y2} ,\textit{D\_y3} ,\textit{D\_y4} ,\textit{D\_y5} ,\textit{D\_y6} ,\textit{D\_y7}],\mapleref{(92)})); $}
+
+% \mapleresult
+\begin{dmath}\label{(93)}
+24 \mathit{v1}^{3}+24 \mathit{v1} \,\mathit{v2}^{2}+24 \mathit{v1} \,\mathit{v3}^{2}+24 \mathit{v1} \,\mathit{v4}^{2}+24 \mathit{v1} \,\mathit{v5}^{2}+24 \mathit{v1} \,\mathit{v6}^{2}+24 \mathit{v1} \,\mathit{v7}^{2}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(93)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(94)}
+24 \mathit{v1} \left(\mathit{v1}^{2}+\mathit{v2}^{2}+\mathit{v3}^{2}+\mathit{v4}^{2}+\mathit{v5}^{2}+\mathit{v6}^{2}+\mathit{v7}^{2}\right)
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{vhkphx} \coloneqq \mathit{evalDG} (\mathit{Hook} (\mathit{v1} \cdot \textit{D\_x1} +\mathit{v2} \cdot \textit{D\_x2} +\mathit{v3} \cdot \textit{D\_x3} +\mathit{v4} \cdot \textit{D\_x4} +\mathit{v5} \cdot \textit{D\_x5} +\mathit{v6} \cdot \textit{D\_x6} +\mathit{v7} \cdot \textit{D\_x7} ,\mathit{phix})); $}
+
+% \mapleresult
+\begin{dmath}\label{(95)}
+\mathit{vhkphx} \coloneqq \mathit{v3} \mathit{dx1}  \bigwedge  \mathit{dx2} -\mathit{v2} \mathit{dx1}  \bigwedge  \mathit{dx3} +\mathit{v5} \mathit{dx1}  \bigwedge  \mathit{dx4} -\mathit{v4} \mathit{dx1}  \bigwedge  \mathit{dx5} -\mathit{v7} \mathit{dx1}  \bigwedge  \mathit{dx6} +\mathit{v6} \mathit{dx1}  \bigwedge  \mathit{dx7} +\mathit{v1} \mathit{dx2}  \bigwedge  \mathit{dx3} +\mathit{v6} \mathit{dx2}  \bigwedge  \mathit{dx4} +\mathit{v7} \mathit{dx2}  \bigwedge  \mathit{dx5} -\mathit{v4} \mathit{dx2}  \bigwedge  \mathit{dx6} -\mathit{v5} \mathit{dx2}  \bigwedge  \mathit{dx7} +\mathit{v7} \mathit{dx3}  \bigwedge  \mathit{dx4} -\mathit{v6} \mathit{dx3}  \bigwedge  \mathit{dx5} +\mathit{v5} \mathit{dx3}  \bigwedge  \mathit{dx6} -\mathit{v4} \mathit{dx3}  \bigwedge  \mathit{dx7} +\mathit{v1} \mathit{dx4}  \bigwedge  \mathit{dx5} +\mathit{v2} \mathit{dx4}  \bigwedge  \mathit{dx6} +\mathit{v3} \mathit{dx4}  \bigwedge  \mathit{dx7} -\mathit{v3} \mathit{dx5}  \bigwedge  \mathit{dx6} +\mathit{v2} \mathit{dx5}  \bigwedge  \mathit{dx7} -\mathit{v1} \mathit{dx6}  \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} ((\mathit{v1} \cdot \mathit{dx1} +\mathit{v2} \cdot \mathit{dx2} +\mathit{v3} \cdot \mathit{dx3} +\mathit{v4} \cdot \mathit{dx4} +\mathit{v5} \cdot \mathit{dx5} +\mathit{v6} \cdot \mathit{dx6} +\mathit{v7} \cdot \mathit{dx7})\:\&\!\!w \,\mathit{vhkphx} \:\&\!\!w \,\mathit{vhkphx} \:\&\!\!w \,\mathit{vhkphx}); $}
+
+% \mapleresult
+\begin{dmath}\label{(96)}
+-\left(6 \mathit{v1}^{4}+12 \mathit{v1}^{2} \mathit{v2}^{2}+12 \mathit{v1}^{2} \mathit{v3}^{2}+12 \mathit{v1}^{2} \mathit{v4}^{2}+12 \mathit{v1}^{2} \mathit{v5}^{2}+12 \mathit{v1}^{2} \mathit{v6}^{2}+12 \mathit{v1}^{2} \mathit{v7}^{2}+6 \mathit{v2}^{4}+12 \mathit{v2}^{2} \mathit{v3}^{2}+12 \mathit{v2}^{2} \mathit{v4}^{2}+12 \mathit{v2}^{2} \mathit{v5}^{2}+12 \mathit{v2}^{2} \mathit{v6}^{2}+12 \mathit{v2}^{2} \mathit{v7}^{2}+6 \mathit{v3}^{4}+12 \mathit{v3}^{2} \mathit{v4}^{2}+12 \mathit{v3}^{2} \mathit{v5}^{2}+12 \mathit{v3}^{2} \mathit{v6}^{2}+12 \mathit{v3}^{2} \mathit{v7}^{2}+6 \mathit{v4}^{4}+12 \mathit{v4}^{2} \mathit{v5}^{2}+12 \mathit{v4}^{2} \mathit{v6}^{2}+12 \mathit{v4}^{2} \mathit{v7}^{2}+6 \mathit{v5}^{4}+12 \mathit{v5}^{2} \mathit{v6}^{2}+12 \mathit{v5}^{2} \mathit{v7}^{2}+6 \mathit{v6}^{4}+12 \mathit{v6}^{2} \mathit{v7}^{2}+6 \mathit{v7}^{4}\right) \mathit{dx1}  \bigwedge  \mathit{dx2}  \bigwedge  \mathit{dx3}  \bigwedge  \mathit{dx4}  \bigwedge  \mathit{dx5}  \bigwedge  \mathit{dx6}  \bigwedge  \mathit{dx7} 
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{evalDG} (\mathit{Hook} ([\textit{D\_x1} ,\textit{D\_x2} ,\textit{D\_x3} ,\textit{D\_x4} ,\textit{D\_x5} ,\textit{D\_x6} ,\textit{D\_x7}],\mapleref{(96)})); $}
+
+% \mapleresult
+\begin{dmath}\label{(97)}
+-6 \mathit{v1}^{4}-12 \mathit{v1}^{2} \mathit{v2}^{2}-12 \mathit{v1}^{2} \mathit{v3}^{2}-12 \mathit{v1}^{2} \mathit{v4}^{2}-12 \mathit{v1}^{2} \mathit{v5}^{2}-12 \mathit{v1}^{2} \mathit{v6}^{2}-12 \mathit{v1}^{2} \mathit{v7}^{2}-6 \mathit{v2}^{4}-12 \mathit{v2}^{2} \mathit{v3}^{2}-12 \mathit{v2}^{2} \mathit{v4}^{2}-12 \mathit{v2}^{2} \mathit{v5}^{2}-12 \mathit{v2}^{2} \mathit{v6}^{2}-12 \mathit{v2}^{2} \mathit{v7}^{2}-6 \mathit{v3}^{4}-12 \mathit{v3}^{2} \mathit{v4}^{2}-12 \mathit{v3}^{2} \mathit{v5}^{2}-12 \mathit{v3}^{2} \mathit{v6}^{2}-12 \mathit{v3}^{2} \mathit{v7}^{2}-6 \mathit{v4}^{4}-12 \mathit{v4}^{2} \mathit{v5}^{2}-12 \mathit{v4}^{2} \mathit{v6}^{2}-12 \mathit{v4}^{2} \mathit{v7}^{2}-6 \mathit{v5}^{4}-12 \mathit{v5}^{2} \mathit{v6}^{2}-12 \mathit{v5}^{2} \mathit{v7}^{2}-6 \mathit{v6}^{4}-12 \mathit{v6}^{2} \mathit{v7}^{2}-6 \mathit{v7}^{4}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \mathit{factor} (\mapleref{(97)}); $}
+
+% \mapleresult
+\begin{dmath}\label{(98)}
+-6 \left(\mathit{v1}^{2}+\mathit{v2}^{2}+\mathit{v3}^{2}+\mathit{v4}^{2}+\mathit{v5}^{2}+\mathit{v6}^{2}+\mathit{v7}^{2}\right)^{2}
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} 6\cdot (15\cdot 24+20\cdot 24) $}
+
+% \mapleresult
+\begin{dmath}\label{(99)}
+5040
+\end{dmath}
+\mapleinput
+{$ \displaystyle \texttt{>\,} \, $}
+
+\end{document}
