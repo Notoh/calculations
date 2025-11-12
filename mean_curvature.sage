@@ -29,14 +29,14 @@ print("Defining symbolic vectors X, Y, Z, H...")
 #if working over Im O, remember to project off real component
 
 X = e[2]
-Y = e[3]
-Z = e[4]
-H = e[5]
+Y = e[2]
+Z = e[2]
+H = 0
 
 def ip(U, V):
     return (U * V.conjugate()).real_part()
 
-def cross_product(U, V):
+def cross(U, V):
     return (U * V).imag_part()
 
 def triple_cross(U, V, W):
@@ -46,16 +46,22 @@ def B(U, V):
     return ip(U, H) * V + ip(V, H) * U - ip(U, V) * H
 
 def J(U):
-    return cross_product(e1_vec, U)
+    return cross(e1_vec, U)
 
 def C(U, V):
     return triple_cross(e1_vec, U, V)
 
+def associator(U, V, W):
+    return (U * V) * W - U * (V * W)
+
 print("Calculating terms (this may take a while)...")
 result1 = J(B(X, Y)) - B(X, J(Y))
 result2 = B(X, C(Y, Z)) - C(B(X, Y), Z) - C(Y, B(X, Z))
+result3 = cross(X, cross(J(Y), H) - cross(J(H), Y)) + ((associator(X, J(Y), H) - associator(X, J(H), Y)) / 2)
 
 print("Result 1: ")
 print(result1)
 print("Result 2: ")
 print(result2)
+print("Result 3: ")
+print(result3)
